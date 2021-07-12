@@ -20,18 +20,25 @@ const VideoChat = () => {
 
   const handleSubmit = useCallback(async event => {
     event.preventDefault();
-    const data = await fetch('api/videoToken', {
-      method: 'POST',
-      body: JSON.stringify({
-        identity: username,
-        room: roomName
-      }),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }).then(res => res.json());
-    console.log(data)
-    setToken(data);
+
+    try {
+      const data = await fetch('api/videoToken', {
+        method: 'POST',
+        body: JSON.stringify({
+          identity: username,
+          room: roomName
+        }),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }).then(res => res.json());
+      console.log(data)
+      setToken(data);
+    } catch (error) {
+      console.log('error =>', error)
+      console.log('error stack =>', error.stack)
+    }
+
   }, [username, roomName]);
 
   const handleLogout = useCallback(event => {
