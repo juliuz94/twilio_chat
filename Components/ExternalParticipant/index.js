@@ -79,6 +79,7 @@ const Participant = ({ participant }) => {
     }
   }, [videoTracks, videoMuted]);
 
+  // Some use effect 
   // useEffect(() => {
   //   console.log(audioTracks)
   //   const audioTrack = audioTracks[0];
