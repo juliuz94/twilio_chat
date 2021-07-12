@@ -61,7 +61,7 @@ const Participant = ({ participant }) => {
     if (videoTrack) {
       if (!videoTrack.isEnabled) {
         videoTrack.detach();
-        setAudioMuted(true)
+        setVideoMuted(true)
       } else {
         videoTrack.attach(videoRef.current);
       }
