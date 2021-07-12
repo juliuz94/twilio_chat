@@ -1,0 +1,62 @@
+.participant {
+  position: relative;
+  max-height: calc(100vh - 130px);
+  min-height: calc(100vh - 130px);
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  height: auto;
+}
+
+.participant .icons {
+  background-color: rgb(37, 37, 37);
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  padding: 0.4rem 0.8rem;
+  display: flex;
+  align-items: center;
+  border-radius: 25px;
+}
+
+.participant .icons svg {
+  margin: 0 0.5rem;
+}
+
+.participant .image_container {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.participant .user_icon_container {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: rgb(37, 37, 37);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.participant .user_icon_container svg,
+.participant .user_icon_container path {
+  stroke: #fff;
+}
+
+.participant video {
+  max-height: inherit;
+}
+
+.participant h3 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.mutedVideoPlaceholder {
+  background-color: black;
+}

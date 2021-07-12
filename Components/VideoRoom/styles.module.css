@@ -1,0 +1,62 @@
+.room_container {
+  background-color: rgb(24, 27, 25);
+  width: 100%;
+  height: calc(100vh - 50px);
+  display: flex;
+  flex-direction: column;
+}
+
+.participants {
+  flex: 1;
+  display: flex;
+}
+
+.external_participants {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.local_participant {
+  flex: 1;
+  width: 25%;
+  max-width: 300px;
+  padding: 0.5rem;
+  border-radius: 2%;
+  overflow: hidden;
+}
+
+.external_participants video,
+.local_participant video {
+  width: 100%;
+}
+
+.footer {
+  flex: 1;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.548);
+  max-height: 80px;
+  display: flex;
+}
+
+.footer .data_col,
+.footer .actions_col,
+.footer .chat_col {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.footer .actions_col .action_button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}

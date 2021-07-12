@@ -1,0 +1,15 @@
+.participant {
+  position: relative;
+}
+
+.participant h3 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.icons {
+  position: absolute;
+  display: flex;
+}
