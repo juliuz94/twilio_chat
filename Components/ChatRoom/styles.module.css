@@ -1,0 +1,151 @@
+.chat_window {
+  background-color: #fff;
+  border-radius: 5px;
+  width: 500px;
+  height: 90%;
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  width: 95%;
+  max-width: 95%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.chat_header {
+  display: flex;
+  padding: 1rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.closeChat {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: transparent;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.closeChat:hover {
+  background-color: rgb(233, 233, 233);
+}
+
+.messages_container {
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  flex: 1;
+  overflow: scroll;
+}
+
+.messages_container.align_center {
+  align-items: center;
+  justify-content: center;
+}
+
+.message {
+  margin-bottom: 0.75rem;
+  padding: 0.1rem;
+  display: flex;
+}
+
+.message.external_message {
+  justify-content: flex-start;
+}
+
+.message.local_message {
+  justify-content: flex-end;
+}
+
+.message_wrapper {
+  width: 90%;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+.message.external_message .message_wrapper {
+  background-color: #eeeeff4d;
+} 
+
+.message.local_message .message_wrapper {
+  background-color: #9b9bf84d;
+} 
+
+.message_sender {
+  margin-bottom: 0.35rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.message_time {
+  margin-left: 0.25rem;
+  font-weight: 400;
+}
+
+.message_content {
+  word-wrap: break-word;
+  font-weight: 400;
+  font-size: 0.9rem;
+  line-height: 1.25rem;
+}
+
+.form_container {
+  min-height: 50px;
+  padding: 0.5rem 0.5rem 0.25rem;
+}
+
+.form_container form {
+  display: flex;
+  height: 100%;
+  min-height: 50px;
+  align-items: center;
+}
+
+.form_container form textarea {
+  flex: 1;
+  min-height: 40px;
+  border: none;
+  max-height: 100px;
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+
+.form_container form textarea:focus-visible, 
+.form_container form textarea:focus {
+  border: none;
+  outline: none;
+  background-color: rgb(243, 243, 243);
+  border-bottom: 1px solid blue;
+
+}
+
+.submit_button {
+  border: none;
+  background-color: transparent;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.7rem;
+  box-sizing: border-box;
+  margin-left: 0.25rem;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.submit_button:hover {
+  background-color: rgb(233, 233, 233);
+}
+
+.submit_button svg,
+.submit_button path {
+  fill: rgb(58, 58, 58);
+} 

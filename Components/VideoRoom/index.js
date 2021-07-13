@@ -2,17 +2,19 @@ import { useState, useEffect } from 'react'
 import Video from 'twilio-video';
 import Participant from '../Participant'
 import ExternalParticipant from '../ExternalParticipant'
+import ChatRoom from '../ChatRoom'
 import styles from './styles.module.css'
 import MicrophoneIcon from '../Icons/MicrophoneIcon'
 import CameraIcon from '../Icons/CameraIcon'
 import PhoneIcon from '../Icons/PhoneIcon'
 import ChatIcon from '../Icons/ChatIcon'
 
-const VideoRoom = ({ roomName, token, handleLogout }) => {
+const VideoRoom = ({ roomName, token, handleLogout, chatToken }) => {
   const [room, setRoom] = useState(null);
   const [participants, setParticipants] = useState([]);
-  const [audioMuted, setAudioMuted] = useState(false)
-  const [videoMuted, setVideoMuted] = useState(false)
+  const [audioMuted, setAudioMuted] = useState(false);
+  const [videoMuted, setVideoMuted] = useState(false);
+  const [showChat, setShowChat] = useState(false)
 
   useEffect(() => {
     const participantConnected = participant => {
@@ -97,12 +99,14 @@ const VideoRoom = ({ roomName, token, handleLogout }) => {
         </div>
         <div className={styles.local_participant}>
           {room ? (
+            !showChat ? 
             <Participant
               key={room.localParticipant.sid}
               participant={room.localParticipant}
               audioMuted={audioMuted}
               videoMuted={videoMuted}
-            />
+            /> : 
+            <ChatRoom token={chatToken} roomName={roomName} closeChat={() => setShowChat(false)} />
           ) : (
             ''
           )}
@@ -124,7 +128,7 @@ const VideoRoom = ({ roomName, token, handleLogout }) => {
           </button>
         </div>
         <div className={styles.chat_col}>
-          <ChatIcon />
+          <ChatIcon onClick={() => setShowChat(!showChat)} />
         </div>
 
       </footer>

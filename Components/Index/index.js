@@ -3,12 +3,14 @@ import Header from '../Header'
 import Lobby from '../Lobby'
 import Room from '../Room'
 import VideoRoom from '../VideoRoom'
+import ChatRoom from '../ChatRoom'
 import styles from './styles.module.css'
 
 const VideoChat = () => {
   const [username, setUsername] = useState('');
   const [roomName, setRoomName] = useState('');
   const [token, setToken] = useState(null);
+  const [chatToken, setChatToken] = useState(null)
 
   const handleUsernameChange = useCallback(event => {
     setUsername(event.target.value);
@@ -20,7 +22,6 @@ const VideoChat = () => {
 
   const handleSubmit = useCallback(async event => {
     event.preventDefault();
-
     try {
       const data = await fetch('api/videoToken', {
         method: 'POST',
@@ -32,13 +33,25 @@ const VideoChat = () => {
           'Content-Type': 'application/json'
         }
       }).then(res => res.json());
-      console.log(data)
+      // console.log(data)
       setToken(data);
+
+      const chatData = await fetch('api/chatToken', {
+        method: 'POST',
+        body: JSON.stringify({
+          identity: username
+        }),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }).then(res => res.json());
+      // console.log(chatData);
+      setChatToken(chatData)
+
     } catch (error) {
       console.log('error =>', error)
       console.log('error stack =>', error.stack)
     }
-
   }, [username, roomName]);
 
   const handleLogout = useCallback(event => {
@@ -49,7 +62,9 @@ const VideoChat = () => {
   if (token) {
     render = (
       // <Room roomName={roomName} token={token} handleLogout={handleLogout} />
-      <VideoRoom roomName={roomName} token={token} handleLogout={handleLogout} />
+      <>
+        <VideoRoom roomName={roomName} token={token} chatToken={chatToken} handleLogout={handleLogout} />
+      </>
     );
   } else {
     render = (
