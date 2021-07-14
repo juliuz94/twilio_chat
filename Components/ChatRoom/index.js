@@ -48,14 +48,16 @@ const ChatRoom = ({ token, roomName, closeChat }) => {
 
     if (channel) {
       setChannel(channel)
-      channel.join().catch(function (err) { });
+      // channel.join().catch(function (err) { });
+      if (channel.channelState.status !== 'joined') {
+        await channel.join()
+      }
       channel.getMessages().then(messages => {
         messagesLoaded(messages)
         setLoading(false)
         scrollToBottom()
       })
       channel.on('messageAdded', messageAdded);
-
     }
 
     // client.getChannelByUniqueName('general')
@@ -144,8 +146,8 @@ const ChatRoom = ({ token, roomName, closeChat }) => {
               width={50}
               timeout={false} //3 secs
             />
-            : (messages.length > 0) && messages.map(item => (
-              <div className={`${styles.message} ${channel.configuration.userIdentity === item.author ? styles.local_message : styles.external_message}`}>
+            : (messages.length > 0) && messages.map((item, index) => (
+              <div key={index} className={`${styles.message} ${channel.configuration.userIdentity === item.author ? styles.local_message : styles.external_message}`}>
                 <div className={styles.message_wrapper}>
                   <p className={styles.message_sender}>
                     {channel.configuration.userIdentity === item.author ? 'Tú' : item.author} -
