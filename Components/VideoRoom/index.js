@@ -99,14 +99,16 @@ const VideoRoom = ({ roomName, token, handleLogout, chatToken }) => {
         </div>
         <div className={styles.local_participant}>
           {room ? (
-            !showChat ? 
+            <>
             <Participant
               key={room.localParticipant.sid}
               participant={room.localParticipant}
               audioMuted={audioMuted}
               videoMuted={videoMuted}
-            /> : 
-            <ChatRoom token={chatToken} roomName={roomName} closeChat={() => setShowChat(false)} />
+              hide={showChat}
+            />
+            <ChatRoom token={chatToken} roomName={roomName} hide={!showChat} closeChat={() => setShowChat(false)} />
+            </>
           ) : (
             ''
           )}

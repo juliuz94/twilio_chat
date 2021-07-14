@@ -3,7 +3,7 @@ import styles from './styles.module.css'
 import MutedMicroPhoneIcon from '../Icons/MutedMicrophoneIcon'
 import MutedCameraIcon from '../Icons/MutedCameraIcon'
 
-const Participant = ({ participant, audioMuted, videoMuted }) => {
+const Participant = ({ participant, audioMuted, videoMuted, hide }) => {
   const [videoTracks, setVideoTracks] = useState([]);
   const [audioTracks, setAudioTracks] = useState([]);
   const videoRef = useRef();
@@ -66,7 +66,7 @@ const Participant = ({ participant, audioMuted, videoMuted }) => {
   // more to come
 
   return (
-    <div className={styles.participant}>
+    <div className={`${styles.participant} ${hide && styles.hide}`}>
       <div className={styles.icons}>
         {audioMuted && <MutedMicroPhoneIcon  />}
         {videoMuted && <MutedCameraIcon />}

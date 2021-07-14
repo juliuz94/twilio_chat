@@ -5,7 +5,7 @@ import SendIcon from '../Icons/SendIcon';
 import Loader from "react-loader-spinner";
 import { DateTime } from 'luxon';
 
-const ChatRoom = ({ token, roomName, closeChat }) => {
+const ChatRoom = ({ token, roomName, closeChat, hide, ...props }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [messages, setMessages] = useState([]);
@@ -127,7 +127,7 @@ const ChatRoom = ({ token, roomName, closeChat }) => {
   }
 
   return (
-    <div className={styles.chat_window}>
+    <div className={`${styles.chat_window} ${hide && styles.hide}`}>
       <div className={styles.chat_header}>
         <h4>
           Mensajes
