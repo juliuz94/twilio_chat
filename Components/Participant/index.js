@@ -54,7 +54,6 @@ const Participant = ({ participant, audioMuted, videoMuted, hide }) => {
   }, [videoTracks]);
 
   useEffect(() => {
-    console.log(audioTracks)
     const audioTrack = audioTracks[0];
     if (audioTrack) {
       audioTrack.attach(audioRef.current);

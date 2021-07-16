@@ -34,12 +34,11 @@ const ChatRoom = ({ token, roomName, closeChat, hide, ...props }) => {
 
     try {
 
-      channel = await client.getChannelByUniqueName(roomName)
+      channel = await client.getChannelByUniqueName(roomName.toString())
 
     } catch (error) {
-
       if (error.body.code === 50300) {
-        channel = await client.createChannel({ uniqueName: roomName });
+        channel = await client.createChannel({ uniqueName: roomName.toString()});
       }
 
       console.log(error)

@@ -1,0 +1,31 @@
+.row {
+  display: flex;
+  height: calc(100vh - 50px);
+}
+
+.left_col, .right_col {
+  flex: 1;
+}
+
+.right_col {
+  background: url('/background_patient.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.left_col {
+  background: rgb(197, 120, 115);
+  background: linear-gradient(142deg, rgba(197, 120, 115, 1) 0%, rgba(73, 95, 158, 1) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem 2rem;
+}
+
+.left_col h1 {
+  color: #fff;
+}
+
+.right_col {
+  max-width: 40%;
+}

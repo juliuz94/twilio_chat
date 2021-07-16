@@ -23,7 +23,6 @@ const chatToken = (identity) => {
 }
 
 const videoToken = (identity, room) => {
-  console.log(identity)
   let videoGrant;
   if (typeof room !== "undefined") {
     videoGrant = new VideoGrant({ room });
@@ -39,6 +38,5 @@ const videoToken = (identity, room) => {
 export default (req, res) => {
   const identity = req.body.identity;
   const token = chatToken(identity);
-  console.log(token)
   res.status(200).send(JSON.stringify(token.toJwt()))
 }

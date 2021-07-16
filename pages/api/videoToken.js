@@ -13,7 +13,6 @@ const generateToken = () => {
 };
 
 const videoToken = (identity, room) => {
-  console.log(identity)
   let videoGrant;
   if (typeof room !== "undefined") {
     videoGrant = new VideoGrant({ room });
@@ -27,7 +26,6 @@ const videoToken = (identity, room) => {
 };
 
 export default (req, res) => {
-  console.log(req)
   const identity = req.body.identity;
   const room = req.body.room;
   const token = videoToken(identity, room);
