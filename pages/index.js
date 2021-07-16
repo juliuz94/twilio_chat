@@ -13,7 +13,7 @@ export default function Home({data, user}) {
       setAppointmentData(null)
     } else {
       setAppointmentData(data)
-      setUserType(userType)
+      setUserType(user)
     }
     setLoading(false)
   }, [data, userType])

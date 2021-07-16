@@ -54,6 +54,7 @@ const VideoChat = ({appointmentData, userType, ...props}) => {
 
   useEffect(async () => {
     setRoomName(appointmentData.id)
+    console.log(userType)
     try {
       const data = await fetch('api/videoToken', {
         method: 'POST',
@@ -86,7 +87,7 @@ const VideoChat = ({appointmentData, userType, ...props}) => {
 
   const handleLogout = useCallback(event => {
     setToken(null);
-  }, [appointmentData, ]);
+  }, []);
 
   // let render;
   // if (token) {
