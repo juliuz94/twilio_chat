@@ -115,14 +115,17 @@ const VideoRoom = ({ roomName, token, handleLogout, chatToken }) => {
         </div>
       </div>
       <footer className={styles.footer}>
+      <div className={styles.data_col_mobile}>
+          <p>{roomName}</p>
+        </div>
         <div className={styles.data_col}>
-          {roomName}
+          <p>{roomName}</p>
         </div>
         <div className={styles.actions_col}>
-          <button className={styles.action_button} onClick={() => handleAudioToggle()}>
+          <button className={`${styles.action_button}  ${audioMuted && styles.inactive}`} onClick={() => handleAudioToggle()}>
             <MicrophoneIcon />
           </button>
-          <button className={styles.action_button} onClick={() => handleVideoToggle()}>
+          <button className={`${styles.action_button}  ${videoMuted && styles.inactive}`} onClick={() => handleVideoToggle()}>
             <CameraIcon />
           </button>
           <button className={styles.action_button} onClick={handleLogout}>

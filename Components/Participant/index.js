@@ -66,10 +66,10 @@ const Participant = ({ participant, audioMuted, videoMuted, hide }) => {
 
   return (
     <div className={`${styles.participant} ${hide && styles.hide}`}>
-      <div className={styles.icons}>
-        {audioMuted && <MutedMicroPhoneIcon  />}
-        {videoMuted && <MutedCameraIcon />}
-      </div>
+      { (audioMuted || videoMuted ) && <div className={styles.icons}>
+        {audioMuted && <MutedMicroPhoneIcon size={20} />}
+        {videoMuted && <MutedCameraIcon size={20} />}
+      </div>}
       <video ref={videoRef} autoPlay={true} />
       <audio ref={audioRef} autoPlay={true} muted={false} />
       <h3>{participant.identity}</h3>

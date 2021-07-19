@@ -115,8 +115,6 @@ const Participant = ({ participant }) => {
   }, [audioTracks, audioMuted]);
 
 
-  // more to come
-
   return (
     <div className={styles.participant}>
 

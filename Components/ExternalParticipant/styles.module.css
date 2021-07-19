@@ -8,6 +8,16 @@
   height: auto;
 }
 
+.participant h3 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 10px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.37);
+}
+
 .participant .icons {
   background-color: rgb(37, 37, 37);
   position: absolute;
@@ -59,4 +69,10 @@
 
 .mutedVideoPlaceholder {
   background-color: black;
+}
+
+@media screen and (max-width: 480px) {
+  .participant {
+    min-height: fit-content;
+  }
 }

@@ -43,6 +43,7 @@ Home.getInitialProps = async (ctx) => {
       authorization: process.env.NEXT_PUBLIC_SAANA_API_TOKEN,
     }
   })
+  console.log(res.data)
   const data = res.data
   console.log(data)
   if (res.status === 200) {

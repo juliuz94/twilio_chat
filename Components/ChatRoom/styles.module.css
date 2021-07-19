@@ -11,10 +11,11 @@
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+  z-index: 200;
 }
 
 .chat_window.hide {
-  opacity: 0;
+  display: none;
 }
 
 .chat_header {
